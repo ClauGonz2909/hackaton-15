@@ -420,3 +420,45 @@ repeatRspt()
 //"apples and bananas".vreplace("u")
 
 
+String.prototype.vreplace = function(vowel) {
+    return this.replace(/[aeiouAEIOU]/g, vowel);
+};
+
+const vreplaceRpta = () => {
+    const vowel = "u";
+    const respuesta = "apples and bananas".vreplace(vowel);
+    console.log(respuesta);
+};
+
+vreplaceRpta();
+
+/////////////////////////////////////////////////////////////////////////
+//EJERCICIO 21:
+//Te dan una cadena de palabras. Debe encontrar la palabra "Nemo"
+//y devolver una cadena como esta: "¡Encontré a Nemo en [el orden
+//de la palabra que encuentra nemo]!".
+//findNemo("I am finding Nemo !") ➞ "I found Nemo at 4!"
+
+const capLast = (phrase, palabrita) =>{
+    const words = phrase.split(" ");
+    const wordKey = words.findIndex(word => word === palabrita) 
+
+    if(wordKey >= 1 ){
+        
+        return `I found Nemo at ${wordKey +1}!`
+    }
+
+    else{
+        return "no se encontro a Nemo"
+    }
+}
+
+
+const capLastRpta = () =>{
+    const phrase = "I am finding Nemo !";
+    const palabrita = "Nemo";
+    const respuesta = capLast(phrase, palabrita)
+    console.log(respuesta)
+
+}
+capLastRpta()
